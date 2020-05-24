@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Order } from './pizza.model';
+import { BakeService } from './services/bake.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng-beschleuniger';
+
 }
+
