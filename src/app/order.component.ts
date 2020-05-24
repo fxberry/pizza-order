@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BakeService } from './services/bake.service';
-import { Order } from './pizza.model';
+import { Order, OrderItem } from './pizza.model';
 
 @Component({
   selector: 'app-order',
@@ -13,15 +13,15 @@ export class OrderComponent {
 
   constructor(private bakeService: BakeService) {
     this.order.email = 'mymail@gmail.com';
-    this.order.orderItems = [
-      { amount: 0, pizza: { name: 'Margaritha', price: 15 } },
-      { amount: 1, pizza: { name: 'Prosciutto', price: 18 } },
-      { amount: 2, pizza: { name: 'Hawaii', price: 20 } },
-    ];
+    this.order.orderItems = [];
   }
 
   orderAmountChanged(newOrderAmount: number) {
     console.log('new order amount: ' + newOrderAmount);
+  }
+
+  addOrderItem() {
+    this.order.orderItems.push({ amount: 0, pizza: { name: '', price: 0 } });
   }
 
   submitOrder() {

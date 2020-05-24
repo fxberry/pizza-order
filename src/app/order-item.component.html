@@ -1,3 +1,14 @@
-<li>{{ orderItem.pizza.name }} x
-  <input type="number" [(ngModel)]="orderItem.amount" min="0" (change)="amountChanged()"> =
-  {{ orderItem.pizza.price * orderItem.amount}}</li>
+<li>
+  <select [(ngModel)]="orderItem.pizza">
+    <option *ngFor="let pizza of availablePizzas" [ngValue]="pizza">{{ pizza.name }}</option>
+  </select>
+
+  {{ orderItem.pizza.name }} ({{ orderItem.pizza.price }} CHF) x
+  <input
+    type="number"
+    [(ngModel)]="orderItem.amount"
+    min="0"
+    (change)="amountChanged()"
+  />
+  = {{ orderItem.pizza.price * orderItem.amount }}
+</li>
