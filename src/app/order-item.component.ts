@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { OrderItem, Pizza } from './pizza.model';
 
 @Component({
@@ -6,7 +6,7 @@ import { OrderItem, Pizza } from './pizza.model';
   templateUrl: 'order-item.component.html'
 })
 
-export class OrderItemComponent implements OnInit {
+export class OrderItemComponent {
   @Input() orderItem: OrderItem;
   @Output() orderAmountChanged = new EventEmitter();
 
@@ -16,8 +16,6 @@ export class OrderItemComponent implements OnInit {
     { name: 'Hawaii', price: 20 } ];
 
   constructor() { }
-
-  ngOnInit() { }
 
   amountChanged() {
     this.orderAmountChanged.emit(this.orderItem.amount);
